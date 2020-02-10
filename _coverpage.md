@@ -1,6 +1,6 @@
 ![logo](_media/AWSlogo_blk.png)
 
-# MSK Workshop <small>0.0.1</small>
+# MSK Workshop <small>0.0.1 - devbranch</small>
 
 > ## Under construction 
 
