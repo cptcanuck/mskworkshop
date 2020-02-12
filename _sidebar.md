@@ -1,6 +1,25 @@
 * [Home](/)
 ---
 
+- [Adding Brokers](modules/addingbrokers/overview.md)
+  - [Preparation](modules/addingbrokers/prep.md)
+  - [Using the Console](modules/addingbrokers/console.md)
+  - [Using the CLI](modules/addingbrokers/cli.md)
+  - [Reassigning Partitions](modules/addingbrokers/reassignpartitions.md)
+- [Installing Kafka](modules/installing/overview.md)
+  - [Preparation](modules/installing/prep.md)
+- [Adding disk space](modules/addingdisk/overview.md)
+- [Open Monitoring/Prometheus](modules/openmonitoring/overview.md)
+  - 
+
+- Common Tasks
+  - [Get Broker Connection Information](modules/commontasks/getbrokerinfo.md)
+  - [Get Zookeeper information](modules/commontasks/getzkinfo.md)
+  - [Get cluster ARN](modules/commontasks/getclusterarn.md)
+  - [Setup AWS CLI](modules/commontasks/setupawscli.md)
+
+TODO
+---
 - Introduction
   - [What is Kafka](modules/intro/whatiskafka.md)
   - [Common terms](modules/intro/kafkaterms.md)
