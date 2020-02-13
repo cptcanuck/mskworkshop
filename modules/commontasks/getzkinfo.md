@@ -10,15 +10,15 @@ It is **strongly** reccomended you do not modify or reuse the provided Zookeeper
 
 1. Click on the name of the cluster you want the details for
 
-![mskclusterclick](/_media/modules/addingbrokers/mskclickcluster.png)
+![mskclusterclick](_media/modules/commontasks/mskclickcluster.png)
 
 3. Click on **View client information** in the **Cluster summary** section
 
-![buttonhighlight](/_media/modules/commontasks/mskviewclientinfobutton.png)
+![buttonhighlight](_media/modules/commontasks/mskviewclientinfobutton.png)
 
 4. Click the **copy** button in the **ZooKeeper connect** section
 
-![copyhighlight](/_media/modules/commontasks/mskzookeeperdata.png)
+![copyhighlight](_media/modules/commontasks/mskzookeeperdata.png)
 
 
 **Tip**

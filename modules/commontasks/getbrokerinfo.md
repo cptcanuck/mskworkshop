@@ -8,22 +8,22 @@ There will be times when you need your broker connection string such as connecti
 
 1. Click on the name of the cluster you want the details for
 
-![img](/_media/modules/addingbrokers/mskclickcluster.png)
+![clickcluster](_media/modules/commontasks/mskclickcluster.png)
 
 3. Click on **View client information** in the **Cluster summary** section
 
-![img](/_media/modules/commontasks/mskviewclientinfobutton.png)
+![clientinfobutton](_media/modules/commontasks/mskviewclientinfobutton.png)
 
 4. Click the **copy** button in the **Bootstrap servers** section
 
-![img](/_media/modules/commontasks/mskbrokerdata.png)
+![brokerdata](_media/modules/commontasks/mskbrokerdata.png)
 
 
 **Note**:
 
 If you are running an MSK cluster with TLS and Plaintext enabled, you will see two sets of server lists.  Ensure you use the correct list for your use case.
 
-![img](/_media/modules/commontasks/mskbrokerdatawithtls.png)
+![tlsexample](/_media/modules/commontasks/mskbrokerdatawithtls.png)
 
 Notice that there are two different ports on the same broker - `9092` is the PLAINTEXT port, and `9094` is the TLS port.
 
