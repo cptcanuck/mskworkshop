@@ -15,3 +15,10 @@ Some important things to note:
   * ideally don't do this while under full load in production
 
 * You are adding brokers to a cluster, so there will be an [additional cost](https://aws.amazon.com/msk/pricing/) to operate your MSK cluster based on your instance size
+
+
+## Zookeeper
+
+If you want to add brokers to the MSK cluster, you *must* use the MSK tools (Console, CLI) to do this - do not do it directly by building brokers and updating ZK.  This will leave the cluster in an inconsistent state, and further operations on the cluster through MSK may remove the nodes you added manually.
+
+As a general rule, don't touch Zookeeper.
