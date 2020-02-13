@@ -30,3 +30,7 @@ If you're working on the command line, and to save yourself some work, put your 
 Then you can refer to the variable in later commands:
 
 `$ bin/kafka-topcs.sh --zookeeper $ZK_CONNECT --list`
+
+## Using the AWS CLI
+
+1. Do stuff
