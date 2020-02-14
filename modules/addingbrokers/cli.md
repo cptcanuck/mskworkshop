@@ -28,7 +28,7 @@ After you run the command, it will return your cluster ARN, and a new value, a *
 
 Using the **ClusterOperationARN**, we can check and see the status of the change
 
-`]$ aws kafka describe-cluster-operation --cluster-operation-arn  arn:aws:kafka:us-east-1:155316955788:cluster-operation/MSKCluster/0546f493-019f-475a-9903-272f0371ce19-6/9ab2c1a2-9a6c-456a-8ae1-1db4ddf4e357 --output json`
+`$ aws kafka describe-cluster-operation --cluster-operation-arn  arn:aws:kafka:us-east-1:155316955788:cluster-operation/MSKCluster/0546f493-019f-475a-9903-272f0371ce19-6/9ab2c1a2-9a6c-456a-8ae1-1db4ddf4e357 --output json`
 
 ![describe-cluster-operation](_media/modules/addingbrokers/mskdescribeclusteroperation.png)
 
