@@ -16,9 +16,10 @@ https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html#cli-qui
 1. Configure the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html#cli-quick-configuration) with the Access Key ID and Secret Access Key you gathered above
 
     `$ aws configure`
-![img](/_media/modules/commontasks/awsconfigexample.png)
 
-    for output format you can choose `json`, `text`, `table` - text is good for this exercise
+![img](_media/modules/commontasks/awsconfigexample.png)
+
+    for output format you can choose `json`, `text`, `table` - text is good for this exercise.  you can change this on the command line by adding `--output [text|json|table` at run time]
  
 4. Test connectivity by running `aws kafka list-clusters` and you should see a list of clusters in your account
 

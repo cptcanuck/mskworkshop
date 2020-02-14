@@ -9,3 +9,5 @@ This workshop is intended to deploy the following items during the labs
 - An S3 bucket to stream data to and from
 
 These modules, other than the first 2, can be done independantly and don't build on each other.
+
+**Note** that as you go through this workshop, there will be some values (such as broker lists, zookeeper lists, cluster ARNs, etc) that you will need over and over.  We suggest you keep a file with these details to make the labs smoother.
