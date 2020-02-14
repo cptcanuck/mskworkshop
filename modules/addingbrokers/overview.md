@@ -31,6 +31,7 @@ Now you can move on expanding your cluster either via the [console](/modules/add
 * Migrating partitions will take time while data is replicated to the new brokers, and *could* impact the performance of the cluster
 
   * ideally don't do this while under full load in production
+  * You can [rate limit replication](https://kafka.apache.org/documentation/#rep-throttle) to limit the risk of this
 
 * You are adding brokers to a cluster, so there will be an [additional cost](https://aws.amazon.com/msk/pricing/) to operate your MSK cluster based on your instance size
 
