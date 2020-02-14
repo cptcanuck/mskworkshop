@@ -23,6 +23,7 @@ Notice that you will be notified about the total number of Kafka brokers when th
 6. You will be returned to the Cluster overview page to wait
 
 Notice that there is a status bar at the top which indicates there is a cluster update in process (Updating the number of brokers per AZ)
+
 ![img](/_media/modules/addingbrokers/mskupdatebar.png)
 
 
