@@ -20,6 +20,15 @@ It is **strongly** reccomended you do not modify or reuse the provided Zookeeper
 
 ![copyhighlight](_media/modules/commontasks/mskzookeeperdata.png)
 
+## Using the AWS CLI
+
+1. [Get your ClusterARN](/modules/commontasks/getclusterarn.md)
+
+1. Use the CLI to describe the cluster with the ARN provided:
+
+`aws kafka describe-cluster --cluster-arn arn:aws:kafka:us-east-1:xyz:cluster/MSKCluster/0546f493-019f-475a-9903-272f0371ce19-6 --output json | jq ".ClusterInfo.ZookeeperConnectString"`
+
+`z-3.mskcluster.xyz.c6.kafka.us-east-1.amazonaws.com:2181,z-1.mskcluster.xyz.c6.kafka.us-east-1.amazonaws.com:2181,z-2.mskcluster.xyz.c6.kafka.us-east-1.amazonaws.com:2181"`
 
 **Tip**
 
@@ -31,6 +40,3 @@ Then you can refer to the variable in later commands:
 
 `$ bin/kafka-topcs.sh --zookeeper $ZK_CONNECT --list`
 
-## Using the AWS CLI
-
-1. Do stuff

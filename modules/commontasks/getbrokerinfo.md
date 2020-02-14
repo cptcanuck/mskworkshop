@@ -27,10 +27,21 @@ If you are running an MSK cluster with TLS and Plaintext enabled, you will see t
 
 Notice that there are two different ports on the same broker - `9092` is the PLAINTEXT port, and `9094` is the TLS port.
 
+## Using the AWS CLI
+
+1. Ensure that you have [setup the AWS CLI](/modules/commontasks/setupawscli.md)
+
+1. Get the cluster ARN
+
+1. Use the command line to run the `get-bootstrap-brokers` subcommand
+
+`$ aws kafka  get-bootstrap-brokers --cluster-arn arn:aws:kafka:us-east-1:xyz:cluster/MSKCluster/0546f493-019f-475a-9903-272f0371ce19-6 --output text`
+
+`b-1.mskcluster.xyz.c6.kafka.us-east-1.amazonaws.com:9094,b-5.mskcluster.xyz.c6.kafka.us-east-1.amazonaws.com:9094,b-3.mskcluster.xyz.c6.kafka.us-east-1.amazonaws.com:9094`
 
 
 
-**Tip**
+## Operations Tip
 
 If you're working on the command line, and to save yourself some work, put your broker connection string into an envrionment variable:
 
@@ -39,3 +50,5 @@ If you're working on the command line, and to save yourself some work, put your 
 Then you can refer to the variable in later commands:
 
 `$ bin/kafka-console-consuer.sh --bootstrap-server $BROKER_CONNECT --topic test`
+
+You can also build this in to your shell profile to save you work every time you login.
