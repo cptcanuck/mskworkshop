@@ -17,6 +17,7 @@
 - Working with MSK
   - [Overview of terminology](modules/kafkatools/overview.md) 
   - [Working with Topics](modules/kafkatools/topics.md)
+  - [Compressed Topics](modules/kafkatools/compressedtopics.md)
   - [Other tools](modules/kafkatools/other_tools.md)
 
 - Using Kafka Connect

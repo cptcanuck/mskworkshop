@@ -8,6 +8,7 @@
   - [Reassigning Partitions](/modules/addingbrokers/reassignpartitions.md)
 
 - MSK Cluster Creation
+  - [Overview of the lab](/modules/clustercreation/overview.md)
   - [Preparation](/modules/clustercreation/prep.md)
   - [Using the Console](/modules/clustercreation/console.md)
   - [Using the CLI](/modules/clustercreation/cli.md)  

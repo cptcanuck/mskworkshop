@@ -19,7 +19,7 @@ https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html#cli-qui
 
 ![img](_media/modules/commontasks/awsconfigexample.png)
 
-    for output format you can choose `json`, `text`, `table` - text is good for this exercise.  you can change this on the command line by adding `--output [text|json|table` at run time]
+    for output format you can choose `json`, `text`, `table` - JSON is good for this exercise.  you can change this on the command line by adding `--output [text|json|table` at run time].  this is helpful if you are getting a very large JSON object back and want to see text.
  
 4. Test connectivity by running `aws kafka list-clusters` and you should see a list of clusters in your account
 
