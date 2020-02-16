@@ -26,7 +26,7 @@ We are going to enable your new MSK cluster to have the following settings:
 
 * **auto.create.topics.enable** - allow topics to be created automatically by producers and consumers.  This is not typically enabled in a production cluster, but it is handy for development and testing to lower the operational overhead
 * **delete.topic.enable** - enables topic deletion on the server.  If topic deletion is not enabled, you cannot delete topics.  You likely want to turn this on on all clusters you build unless you have a specific need not to.
-* **log.retention.hours** - we will set this to `4` hours for the lab.  Note that this is the default configuration, it can still be [overridden at the topic level](https://docs.aws.amazon.com/msk/latest/developerguide/bestpractices.html)
+* **log.retention.hours** - we will set this to `8` hours for the lab.  Note that this is the default configuration, it can still be [overridden at the topic level](https://docs.aws.amazon.com/msk/latest/developerguide/bestpractices.html)
 
 
 1. On your Kafka jumpbox, create a file called 'cluster_config.txt' with the following content
@@ -91,11 +91,79 @@ Using the ARN provided in the output step above (or retrieved from `aws kafka li
         "Name": "WorkshopMSKConfig"
     }
 
+For more details on creating and managing MSK Cluster Configuration, see the [MSK Configuration Operations](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration-operations.html) document
 
+
+## Step 3 - Create an MSK security group
+
+By default, the cluster will be attached to the 'default' security group, which allows all ports between all members of the group.  This is fine for testing, but it's not a best practice in production.
+
+We will create two security groups - one to attach to producers, consumers, and admin hosts, and the other to attach to the cluster that references the first.
+
+### Create the client security group
+
+This security group should be attached to any clients who are to access the cluster.  
+
+**Tip**: For this workshop, we will create one group for all access, but you could create a group for each type of access (ie: Encrypted and Plaintext) so you could limit access at the security group level to the services on the cluster.
+
+1. Click on `Services` in the top left corner of the console, and select `EC2`
+
+1. Select `Security Groups` in the left pane
+
+1. Click `Create Security Group`
+
+1. Fill out the form as follows
+
+        Security group name: MSKWorkshopClients
+        Description: Clients that can connect to the MSKWorkshop cluster
+        VPC: [select the VPC you are using for your lab]
+
+Don't add any rules, and click *Create*
+
+Example:
+![clientsg](_media/modules/clustercreation/msk_console_clientsg.png)
+
+
+1. In the security group list, select the `Group ID` for the `MSKWorkshopClients` SG, and copy it to your notepad/texteditor
+
+### Create the access security group for the cluster
+
+This security group will be attached to the MSK cluster and will be used to limit access
+
+1. Click on `Create Security Group`
+
+1. Fill out the form as follows:
+
+        Security group name: MSKWorkshopKafkaService
+        Description: Access to the Kafka service on the MSK cluster
+        VPC: [select the VPC you are using for your lab]
+
+1. Create rules
+
+    1. Click `Add rule`
+    1. Use:
+        * Type: Custom TCP
+        * Protocol: TCP
+        * Port range: 9092
+        * Source: [paste the MSKWorkshopClients SG from the previous step]
+        * Description: Plaintext Kafka
+    1. Click `Add Rule`
+    1. Use:
+        * Type: Custom TCP
+        * Protocol: TCP
+        * Port range: 9094
+        * Source: [paste the MSKWorkshopClients SG from the previous step]
+        * Description: Encrypted Kafka
+
+1. Click `Create`
+
+Example:
+![servicesg](_media/modules/clustercreation/msk_console_servicesg.png)
+
+In the security group list, select the `Group ID` for the `MSKWorkshopKafkaService` SG, and copy it to your notepad/texteditor
 
 **You are done!**  Now you can move on to the lab. 
 
-For more details on creating and managing MSK Cluster Configuration, see the [MSK Configuration Operations](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration-operations.html) document
 
 ---
 
