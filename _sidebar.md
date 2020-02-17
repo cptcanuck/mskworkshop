@@ -18,6 +18,7 @@
 
 - Open Monitoring/Prometheus
   - [Overview of solution](/modules/openmonitoring/overview.md)
+  - [Preparation](/modules/openmonitoring/prep.md)
   - [Installation](/modules/openmonitoring/install.md)
   - [Configuration](/modules/openmonitoring/config.md)
 
