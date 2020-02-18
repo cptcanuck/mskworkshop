@@ -65,3 +65,16 @@ You are set!  Now you can move on to Step 2 and make the monitoring ports access
 * Steps
 
 This will be used shortly
+
+
+---
+
+## Step 3 - install docker on your Kafka Jumpbox
+
+1. sudo yum update -y
+1. sudo amazon-linux-extras install docker
+1. sudo service docker start
+1. sudo usermod -a -G docker ec2-user
+1. test that docker is working
+
+        docker info

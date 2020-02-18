@@ -1,17 +1,20 @@
-# Installation of Prometheus
+# Installation of using Docker
 
+1. Login to your Kafka Jumpbox as ec2-user
 
-1. Login to your Kafka Jumpbox
+1. Ensure Docker is running
 
-1. Download tarball
+        docker info
 
-https://github.com/prometheus/prometheus/releases/download/v2.16.0/prometheus-2.16.0.linux-amd64.tar.gz
+    you should see a page of details, not an error/connection failure
 
+1. Create a prometheus directory to work in
 
-1. Untar
-tar -zxvf prometheus-2.16.0.linux-amd64.tar.gz
+        mkdir ~/prometheus
 
-1. Create prometheus server configuration - prometheus.yml
+1. Create a servie configuration file
+
+Create prometheus server configuration - `~/prometheus/prometheus.yml` 
 
         # file: prometheus.yml
         # my global config
@@ -33,7 +36,7 @@ tar -zxvf prometheus-2.16.0.linux-amd64.tar.gz
 
 1. Get your [broker list](/modules/commontasks/getbrokerinfo.md) and put it into your notepad
 
-1. Create a file `targets.json`
+1. Create a file `~/prometheus/targets.json`
 
 Contents (replacing `broker_dns_[1,2,N]` with the values from the step above):
 
@@ -93,11 +96,32 @@ Example of a completed file:
 
 5. Run prometheus
 
-In the same directly, run `./prometheus`
+We are going to fire up Prometheus running docker.  This will pull down the container and run it, mounting the config files created above into the container, and exposing the service on port 9090
 
-If everything works as expected, you should see:
+`sudo docker run -d -p 9090:9090 -v ~/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml -v ~/prometheus/targets.json:/etc/prometheus/targets.json prom/prometheus --config.file=/etc/prometheus/prometheus.yml`
 
-`level=info ts=2020-02-17T05:13:05.916Z caller=main.go:630 msg="Server is ready to receive web requests."`
+The command will return your containerID, eg:
+
+`db5fa73d5a197935cd7294b1db5b3a4d9057afe0ff2624514d28787fb3f778e6`
+
+### Some Docker Tips
+
+If you haven't used docker before, or need a refresh, some basic operational processes:
+
+1. The container will run in the background.  You can view the logs by running
+
+`sudo docker logs <containerID>`
+
+eg:
+
+`sudo docker logs db5fa73d5a197935cd7294b1db5b3a4d9057afe0ff2624514d28787fb3f778e6`
+
+1. If you want to get a shell in the container to look at configs, check processes, etc, you can do:
+
+`sudo docker exec -it <containerID> /bin/sh`
+
+
+
 
 6. Update the security group on your MSK Jumpbox
 
@@ -111,6 +135,13 @@ If everything works as expected, you should see:
         * Port Range: **9090**
         * Source: **MyIP**
         * Description: **Prometheus**
+
+    * Add a new rule:
+
+        * Type: **Custom TCP**
+        * Port Range: **3000**
+        * Source: **MyIP**
+        * Description: **Grafana**
         
     * Click Save
 
@@ -125,3 +156,18 @@ If everything works as expected, you should see:
 * Flip to your web browser, browse to the that Public IPv4 address on port 9090
 
 Example: `http://1.2.3.4:9090`
+
+You will now be in the Prometheus web interface
+
+8. Review incoming metrics
+
+You can do some basic graphing and metrics collection in the Prometheus webUI.  But we will use Grafana for more advanced dashboarding
+
+1. In the `Graph` pane in Prometheus (selected from the menu along the top), in the `Expression` bar, start typing `kafka`.  This will allow you to browse all the metrics being pull in to Prometheus
+
+![prometheus-ui-search](_media/modules/openmonitoring/prometheus_graph_search.png)
+
+Select [FIGURe OUT SOME USEFUL METRIC ONCE THERE IS DATA IN A CLUSTER]
+
+Click 'Graph' tab under the `Expression` bar and review a simple graph of the metric
+
