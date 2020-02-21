@@ -1,4 +1,4 @@
-# Get your MSK Zookeeper Connection String
+# Get your MSK Cluster ARN
 
 There will be times when you need your Cluster ARN for running commands using the Command Line Interface (CLI).  This will show you where to find this information.
 
