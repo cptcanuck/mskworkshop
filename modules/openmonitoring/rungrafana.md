@@ -9,9 +9,9 @@ We will be using Docker to run Grafana on your Kafka Jumpbox - this should keep 
 
 1. Start Grafana in docker:
 
-`docker run -d -p 3000:3000 --name=grafana -e "GF_INSTALL_PLUGINS=grafana-clock-panel" grafana/grafana
+`docker run -d -p 3000:3000 --name=grafana -e "GF_INSTALL_PLUGINS=grafana-clock-panel" grafana/grafana`
 
-1. Connect to your Kafka Jumpboxes public IP Address on port 3000.  An example would be `https://1.2.3.4:3000`.  You should see a Grafana login screen
+1. Connect to your Kafka Jumpboxes public IP Address on port 3000.  You can get this IP by going to the EC2 console, clicking on your instance labelled `Kafka Jumpbox` and copying the 'public IP'.  An example would be `https://1.2.3.4:3000`.  You should see a Grafana login screen
 
 1. Login with username "admin", password "admin"
 
