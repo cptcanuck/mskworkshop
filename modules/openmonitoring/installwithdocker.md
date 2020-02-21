@@ -98,7 +98,7 @@ Example of a completed file:
 
 We are going to fire up Prometheus running docker.  This will pull down the container and run it, mounting the config files created above into the container, and exposing the service on port 9090
 
-`sudo docker run -d -p 9090:9090 -v ~/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml -v ~/prometheus/targets.json:/etc/prometheus/targets.json prom/prometheus --config.file=/etc/prometheus/prometheus.yml`
+`sudo docker run -d -p 9090:9090 --name=prometheus -v ~/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml -v ~/prometheus/targets.json:/etc/prometheus/targets.json prom/prometheus --config.file=/etc/prometheus/prometheus.yml`
 
 The command will return your containerID, eg:
 
@@ -171,3 +171,7 @@ Select [FIGURe OUT SOME USEFUL METRIC ONCE THERE IS DATA IN A CLUSTER]
 
 Click 'Graph' tab under the `Expression` bar and review a simple graph of the metric
 
+
+# Resources
+
+* [Install Prometheus](https://prometheus.io/docs/prometheus/latest/installation/)

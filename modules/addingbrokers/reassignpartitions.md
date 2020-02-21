@@ -121,3 +121,4 @@ Example:
 ## Additional Reading
 
 * [Kafka cluster expansion and partition reassignment](https://kafka.apache.org/documentation/#basic_ops_cluster_expansion)
+* [Limit replication bandwidth](https://kafka.apache.org/documentation/#rep-throttle)

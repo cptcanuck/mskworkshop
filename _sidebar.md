@@ -19,8 +19,8 @@
 - Open Monitoring/Prometheus
   - [Overview of solution](/modules/openmonitoring/overview.md)
   - [Preparation](/modules/openmonitoring/prep.md)
-  - [Installation](/modules/openmonitoring/install.md)
-  - [Configuration](/modules/openmonitoring/config.md)
+  - [Prometheus Installation and config](/modules/openmonitoring/installwithdocker.md)
+  - [Grafana Installation and use](/modules/openmonitoring/rungrafana.md)
 
 - Common Tasks
   - [Get Broker Connection Information](/modules/commontasks/getbrokerinfo.md)
