@@ -1,7 +1,4 @@
-# Kafka Tools
-
-
-## Kafkacat
+# Kafkacat
 
 https://medium.com/@frank.munz/kafkacat-on-amazonlinux-centos-d7ded88042e8
 
